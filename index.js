@@ -1,7 +1,7 @@
 const express = require('express')
 const app =express()
 const mongoose = require('mongoose');
-const Patient = require('./models/patientModel');
+const Patient = require('./model/patientModel');
 
 /*
 TODO: Make sure a patient is not registered twice
@@ -98,6 +98,6 @@ app.get("/patient/:name/:name2",async(req,res)=>{
 
 
 
-app.listen(3000,()=>{
+app.listen(4000,()=>{
     console.log('Node server is running')
 });

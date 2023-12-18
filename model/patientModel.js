@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const patientModel = mongoose.Schema({
+const patientModel1 = mongoose.Schema({
     ID:{
         type:String,
         required:true
@@ -46,6 +46,6 @@ const patientModel = mongoose.Schema({
 
 
 
-const Patient = mongoose.model("patient",patientModel);
+const Patient = mongoose.model("patient1",patientModel1);
 
 module.exports = Patient;
