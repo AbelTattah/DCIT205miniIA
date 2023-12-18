@@ -48,6 +48,19 @@ app.post("/patient",async(req,res)=>{
 
 })
 
+//Start encounter with patient
+//Assuming that the frontend will provide all patient names in the request body
+
+app.put("/patient",async(req,res)=>{
+    try {
+        const update = await Patient.findOneAndUpdate({FirstName:req.body.FirstName,Surname:req.body.Surname},{Appointments:req.body.Appointments});
+        res.status(200).json(update)
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
+
 
 
 
