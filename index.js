@@ -30,6 +30,27 @@ mongoose.connect('mongodb+srv://tattahabelk:Abel1919@cluster0.bkxk0nq.mongodb.ne
 
 
 
+//routes
+
+
+//Create new patient record
+app.post("/patient",async(req,res)=>{
+    const check = await Patient.find({FirstName:req.body.FirstName,Surname:req.body.Surname},{FirstName:true});
+  
+        if (check.length==0) {
+            const patient = await Patient.create(req.body);
+            res.status(200).json(patient);
+           }    
+           else {
+            res.status(404).json({message:"Patient Already exists"}); 
+            console.log(check);
+           }
+
+})
+
+
+
+
 app.listen(3000,()=>{
     console.log('Node server is running')
 });
