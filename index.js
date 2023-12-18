@@ -73,6 +73,17 @@ app.put("/patientv",async(req,res)=>{
 })
 
 
+//View list of patients
+app.get("/patientall",async(req,res)=>{
+    try {
+        const patient = await Patient.find({},{FirstName:true,Surname:true});
+        console.log(patient);
+        res.status(200).json(patient);
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
 
 
 app.listen(3000,()=>{
