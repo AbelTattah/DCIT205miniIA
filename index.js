@@ -85,6 +85,18 @@ app.get("/patientall",async(req,res)=>{
 })
 
 
+//Get details of a particular patient
+app.get("/patient/:name/:name2",async(req,res)=>{
+    try {      
+        const update = await Patient.find({FirstName:req.params.name,Surname:req.params.name2},{Vitals:true,Appointments:true});
+        console.log(req.params.name);
+        res.status(200).json(update);
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
+
 
 app.listen(3000,()=>{
     console.log('Node server is running')
