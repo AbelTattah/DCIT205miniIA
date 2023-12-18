@@ -60,6 +60,17 @@ app.put("/patient",async(req,res)=>{
     }
 })
 
+//Record patient vitals
+//Assuming that the frontend will provide all patient names in the request body
+
+app.put("/patientv",async(req,res)=>{
+    try {
+        const update = await Patient.findOneAndUpdate({FirstName:req.body.FirstName,Surname:req.body.Surname},{Vitals:req.body.Vitals});
+        res.status(200).json(update);
+    } catch (error) {
+        console.log(error.message);
+    }
+})
 
 
 
