@@ -20,7 +20,6 @@ View the details of a specific patient
 
 //middleware
 app.use(express.json())
-app.use(express.json())
 
 //MongoDB Connection
 mongoose.connect('mongodb+srv://tattahabelk:Abel1919@cluster0.bkxk0nq.mongodb.net/',{
